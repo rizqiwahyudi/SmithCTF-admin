@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Kompetisi Bidang Cyber Security">
+  	<meta name="author" content="Rizqi Wahyudi">
+
+	<title>Admin Panel</title>
+
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/jumbotron.css">
+	<link rel="stylesheet" type="text/css" href="css/sticky.css">
+	<link rel="stylesheet" type="text/css" href="css/chall.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+	
+	<!-- Navbar -->
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+		<div class="container">
+			<a class="navbar-brand" href="admin.html">SMITH CTF</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#base-navbars" aria-controls="base-navbars" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="base-navbars">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item">
+						<a class="nav-link" href="notif.html">Notifications</a>
+					</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">Pages</a>
+						<div class="dropdown-menu">
+							<a class="dropdown-item" href="pages.html">All Pages</a>
+							<a class="dropdown-item" href="new-page.html">New Page</a>
+						</div>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="users.html">Users</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="teams.html">Teams</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="score.html">Scoreboard</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="chall.html">Challenges</a>
+					</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">Submissions</a>
+						<div class="dropdown-menu">
+							<a class="dropdown-item" href="all-submissions.html">All Submissions</a>
+							<a class="dropdown-item" href="correct-submissions.html">Correct Submissions</a>
+							<a class="dropdown-item" href="wrong-submissions.html">Wrong Submissions</a>
+						</div>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="">Config</a>
+					</li>
+				</ul>
+				<hr class="d-sm-flex d-md-flex d-lg-none">
+				<ul class="navbar-nav ml-md-auto d-block d-sm-flex d-md-flex">
+					<li class="nav-item">
+						<a class="nav-link" href="#">Logout</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<!-- Halaman konten -->
+	<main id="roll" role="main">
+		<div class="jumbotron">
+			<div class="container text-center">
+				<h1>Configuration</h1>
+			</div>
+		</div>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-3">
+					<ul class="nav nav-pills flex-column">
+						<li class="nav-item">
+							<a class="nav-link rounded-0 active" href="#appearance" role="tab" data-toggle="tab">Appearance</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link rounded-0" href="#accounts" role="tab" data-toggle="tab">Accounts</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link rounded-0" href="#settings" role="tab" data-toggle="tab">Settings</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link rounded-0" href="#email" role="tab" data-toggle="tab">Email</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link rounded-0" href="#backup" role="tab" data-toggle="tab">Backup</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link rounded-0" href="reset.html" role="tab">Reset</a>
+						</li>
+					</ul>
+				</div>
+				<div class="col-md-9">
+					<div class="tab-content">
+						<div id="appearance" class="tab-pane config-section active" role="tabpanel">
+							<form id="logo-upload" class="form-upload" method="post" enctype="multipart/form-data">
+								<div class="form-group">
+									<label for="ctf_logo">
+										Logo
+										<small class="form-text text-muted">Logo yang akan digunakan untuk Brand situs web CTF. </small>
+									</label>
+									<div class="row">
+										<div class="col-md-9">
+											<input type="file" name="file" class="form-control-file" id="ctf_logo" placeholder="CTF Logo">
+										</div>
+										<div class="col-md-3">
+											<div class="form-group">
+												<div class="d-inline-block float-right">
+													<button class="btn-sm btn-primary float-right" type="submit">Upload</button>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</form>
+							<hr>
+							<form class="w-100" method="post" autocomplete="off">
+								<div class="form-group">
+									<label for="ctf_name">
+										Competition Name 
+										<small class="form-text text-muted">Nama kompetisi ditampilkan sebagai pengganti logo</small>
+									</label>
+									<input type="text" name="ctf_name" id="ctf_name" class="form-control input-filled-valid" placeholder="CTF Name" style="border-color: gray;">
+								</div>
+								<div class="form-group">
+									<label for="user_mode">
+										User Mode
+										<small class="form-text text-muted">Mode pengguna memungkinkan pengguna untuk mendaftar sendiri atau memilih untuk membentuk tim.</small>
+									</label>
+									<div data-toggle="tooltip" data-placement="bottom" title="In order to change User Mode you must reset your CTF">
+										<select id="user_mode" class="form-control input-filled-valid" name="user_mode" disabled="true" style="z-index: -1; border-color: gray;">
+											<option value="teams" selected="">Teams</option>
+											<option value="users">Users</option>
+										</select>
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="ctf_theme">
+										Theme
+										<small class="form-text text-muted">Beralih tema CTF</small>
+									</label>
+									<select id="ctf_theme" class="form-control input-filled-valid" name="ctf_theme" style="border-color: gray;">
+										<option>Core</option>
+									</select>
+								</div>
+								<div class="form-group">
+									<label>
+										Stylesheet editor
+										<small class="form-text text-muted">CSS diterapkan ke semua halaman yang menghadap publik jika tema yang digunakan mendukung CSS khusus.</small>
+									</label>
+									<textarea class="form-control" id="css-editor" name="css" rows="7" style="border-color: gray;"></textarea>
+								</div>
+								<button class="btn btn-md btn-primary float-right" type="submit">Update</button>
+							</form>
+						</div>
+						<div id="accounts" class="tab-pane config-section" role="tabpanel">
+							<form class="w-100" method="post" autocomplete="off">
+								<div class="form-group">
+									<label>
+										Account Email Whitelist 
+										<small class="form-text text-muted">Domain email terpisah koma tempat pengguna dapat mendaftar.</small>
+									</label>
+									<input id="domain-whitelist" type="text" name="domain-whitelist" class="form-control" style="border-color: gray;">
+									<small class="form-text text-muted">contoh github.io,gmail.com,yahoo.com </small>
+								</div>
+								<div class="form-group">
+									<label>
+										Verify Emails
+										<br>
+										<small class="form-text text-muted">Control apakah pengguna harus mengkonfirmasi alamat email mereka sebelum bermain </small>
+									</label>
+									<select class="form-control input-filled-valid" name="verify_emails" style="border-color: gray;">
+										<option value="true">Enabled</option>
+										<option value="false" selected="">Disabled</option>
+									</select>
+								</div>
+								<div class="form-group">
+									<label>
+										Team Name Changes
+										<br>
+										<small class="form-text text-muted">Control pengguna apakah dapat mengubah namanya</small>
+									</label>
+									<select class="form-control input-filled-valid" name="name_changes" style="border-color: gray;">
+										<option value="true">Enabled</option>
+										<option value="false" selected="">Disabled</option>
+									</select>
+								</div>
+								<button class="btn btn-md btn-primary float-right" type="submit">Update</button>
+							</form>
+						</div>
+						<div id="settings" class="tab-pane config-section" role="tabpanel">
+							<form class="w-100" method="post" autocomplete="off">
+								<div class="form-group">
+									<label>
+										Challenge Visibility
+										<br>
+										<small class="form-text text-muted">Control apakah pengguna harus Login untuk melihat tantangan </small>
+									</label>
+									<select class="form-control input-filled-valid" name="challenge_visibility" style="border-color: gray;">
+										<option value="public">Public</option>
+										<option value="private" selected="">Private</option>
+										<option value="admins">Admins Only</option>
+									</select>
+								</div>
+								<div class="form-group">
+									<label>
+										Score Visibility
+										<br>
+										<small class="form-text text-muted">Control apakah solves / skor diperlihatkan kepada publik, kepada pengguna yang masuk, disembunyikan ke semua non-admin, atau hanya ditampilkan kepada admin </small>
+									</label>
+									<select class="form-control input-filled-valid" name="score_visibility" style="border-color: gray;">
+										<option value="public" selected="">Public</option>
+										<option value="private">Private</option>
+										<option value="hidden">Hidden</option>
+										<option value="admins">Admins Only</option>
+									</select>
+									<small class="form-text text-muted">Pengaturan ini umumnya harus sama dengan Visibilitas Akun untuk menghindari konflik.</small>
+								</div>
+								<div class="form-group">
+									<label>
+										Account Visibility
+										<br>
+										<small class="form-text text-muted">Control apakah akun (pengguna & tim) diperlihatkan kepada semua orang atau hanya untuk admin</small>
+									</label>
+									<select class="form-control input-filled-valid" name="account_visibility" style="border-color: gray;">
+										<option value="public" selected="">Public</option>
+										<option value="private">Private</option>
+										<option value="admins">Admins Only</option>
+									</select>
+									<small class="form-text text-muted">Pengaturan ini umumnya harus sama dengan Skor Visibilitas untuk menghindari konflik.</small>
+								</div>
+								<div class="form-group">
+									<label>
+										Registration Visibility
+										<br>
+										<small class="form-text text-muted">Control apakah pendaftaran diaktifkan untuk semua orang atau dinonaktifkan</small>
+									</label>
+									<select class="form-control input-filled-valid" name="register_visibility" style="border-color: gray;">
+										<option value="public" selected="">Public</option>
+										<option value="private">Private</option>
+									</select>
+								</div>
+								<div class="form-group">
+									<div class="form-check">
+										<input id="paused" type="checkbox" name="paused" style="border-color: gray;">
+										Pause CTF
+										<br>
+										<small>Mencegah pengguna mengirimkan jawaban hingga tidak di pause. Tantangan masih bisa dilihat.</small>
+									</div>
+								</div>
+								<button class="btn btn-md btn-primary float-right" type="submit">Update</button>
+							</form>
+						</div>
+						<div id="email" class="tab-pane config-section" role="tabpanel">
+							<form class="w-100" method="post" autocomplete="off">
+								<ul class="nav nav-tabs mb-3" role="tablist">
+									<li class="nav-item active">
+										<a class="nav-link active" href="#mailserver" role="tab" data-toggle="tab">Mail Server</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link" href="#mailgun" role="tab" data-toggle="tab">Mailgun</a>
+									</li>
+								</ul>
+								<div class="form-group">
+									<label>
+										Mail From Address
+										<br>
+										<small class="form-text text-muted">Alamat email yang digunakan untuk mengirim email</small>
+									</label>
+									<input type="text" name="mailform_addr" id="mailform_addr" class="form-control" style="border-color: gray;">
+								</div>
+								<div class="tab-content">
+									<div id="mailserver" class="tab-pane active" role="tabpanel">
+										<div class="form-group">
+											<label>
+												Mail Server Address
+												<br>
+												<small class="form-text text-muted">Mail Server Address </small>
+											</label>
+											<input type="text" name="mail_server" id="mail_server" class="form-control" style="border-color: gray;">
+										</div>
+										<div class="form-group">
+											<label>
+												Mail Server Port
+												<br>
+												<small class="form-text text-muted">Mail Server Port </small>
+											</label>
+											<input type="text" name="mail_port" id="mail_port" class="form-control" style="border-color: gray;">
+										</div>
+										<div class="form-check">
+											<label>
+												<input id="mail_useauth" type="checkbox" name="mail_useauth" style="border-color: gray;">
+												Use Mail Server Username and Password 
+											</label>
+										</div>
+										<div class="form-check">
+											<label>
+												<input id="mail_ssl" type="checkbox" name="mail_ssl" style="border-color: gray;">
+												SSL
+											</label>
+										</div>
+										<div class="form-check">
+											<label>
+												<input id="mail_tls" type="checkbox" name="mail_tls" style="border-color: gray;">
+												TLS
+											</label>
+										</div>
+									</div>
+									<div id="mailgun" class="tab-pane" role="tabpanel">
+										<div class="form-group">
+											<label>
+												Mailgun API Base URL
+												<br>
+												<small class="form-text text-muted">Mailgun API Base URL </small>
+											</label>
+											<input type="text" name="mailgun_base_url" id="mailgun_base_url" class="form-control" style="border-color: gray;">
+										</div>
+										<div class="form-group">
+											<label>
+												Mailgun API Key
+												<br>
+												<small class="form-text text-muted">Mailgun API Key </small>
+											</label>
+											<input type="text" name="mailgun_api_key" id="mailgun_api_key" class="form-control" style="border-color: gray;">
+										</div>
+									</div>
+								</div>
+								<button class="btn btn-md btn-primary float-right" type="submit">Update</button>
+							</form>
+						</div>
+						<div id="backup" class="tab-pane config-section" role="tabpanel">
+							<ul class="nav nav-tabs mb-3" role="tablist">
+								<li class="nav-item">
+									<a class="nav-link active" href="#export-ctf" aria-controls="export-ctf" role="tab" data-toggle="tab">Export</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="#import-ctf" aria-controls="import-ctf" role="tab" data-toggle="tab">Import</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="#save-csv" aria-controls="save-csv" role="tab" data-toggle="tab">Download CSV</a>
+								</li>
+							</ul>
+							<div class="tab-content">
+								<div id="export-ctf" class="tab-pane active" role="tabpanel">
+									<div class="form-group">
+										<p>Ekspor adalah arsip CTF Anda dalam kondisi saat ini. Arsip ini bisa di Impor kembali pada pihak pelaksana CTF lainnya.</p>
+										<p>Untuk mengunduh ekspor, klik tombol di bawah ini.</p>
+									</div>
+									<div class="form-group">
+										<a id="export-button" href="#" class="btn btn-warning">Export</a>
+									</div>
+								</div>
+								<div id="import-ctf" class="tab-pane" role="tabpanel">
+									<div class="form-group">
+										<p>Anda dapat mengimpor ekspor arsip CTFnya yang disimpan dengan mengunggahnya di bawah ini. Ini benar-benar akan menghapus arsip CTF saat ini yang ada dan semua data Anda akan digantikan oleh data yang diimpor. Anda hanya harus mengimpor data yang Anda percayai!</p>
+										<div class="alert alert-warning" role="alert">
+											MENGIMPOR CTF AKAN SEPENUHNYA MENGHAPUS DATA YANG ADA
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="container-file"	>
+											Import File
+										</label>
+										<input type="file" name="backup" class="form-control-file" id="container-file" accept=".zip">
+									</div>
+									<input id="import-button" type="submit" name="import-button" class="btn btn-warning" value="Import">
+								</div>
+								<div id="save-csv" class="tab-pane" role="tabpanel">
+									<form method="get" action="">
+										<div class="form-group">
+											<label for="container-files">Database Table</label>
+											<select class="form-control input-filled-valid" name="table" style="border-color: gray;">
+												<option value="awards">awards</option>
+												<option value="challenges">challenges</option>
+												<option value="config">config</option>
+												<option value="files">files</option>
+												<option value="flag">flag</option>
+												<option value="pages">pages</option>
+												<option value="solves">solves</option>
+												<option value="notifications">notifications</option>
+												<option value="teams">teams</option>
+												<option value="users">users</option>
+												<option value="submissions">submissions</option>
+											</select>
+										</div>
+										<input type="submit" name="download_csv" class="btn btn-warning" value="Download CSV">
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+
+	<!-- Footer -->
+	<footer class="footer">
+		<div class="container text-center">
+			<a href="https://www.instagram.com/smith_smada/">
+				<small class="text-muted"><b>Powered by SMITH</b></small>
+			</a>
+		</div>
+	</footer>
+
+	<!-- JS Script -->
+	<script type="text/javascript" src="js/function.js"></script>
+	<script type="text/javascript" src="js/bootstrap.js"></script>
+	<script type="text/javascript" src="js/typed.min.js"></script>
+	<script>
+		new Typed('#lomba', {
+			strings : ['Web Hacking', 'Cryptography', 'Binary Exploitation', 'Digital Forensic', 'Network Analysis', 'Reverse Engineering'],
+			typeSpeed : 150,
+			delaySpeed : 200,
+			loop : true
+		});
+	</script>
+	<!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> -->
+</body>
+</html>

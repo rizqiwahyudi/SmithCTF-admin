@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Kompetisi Bidang Cyber Security">
+  	<meta name="author" content="Rizqi Wahyudi">
+
+	<title>Admin Panel</title>
+
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/jumbotron.css">
+	<link rel="stylesheet" type="text/css" href="css/sticky.css">
+	<link rel="stylesheet" type="text/css" href="css/chall.css">
+	<link rel="stylesheet" type="text/css" href="css/codemirror.min.css">
+	<style>
+	.CodeMirror-gutters {
+		min-height: 100% !important;;
+	}
+	</style>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+	
+	<!-- Navbar -->
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+		<div class="container">
+			<a class="navbar-brand" href="admin.html">SMITH CTF</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#base-navbars" aria-controls="base-navbars" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="base-navbars">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item">
+						<a class="nav-link" href="notif.html">Notifications</a>
+					</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">Pages</a>
+						<div class="dropdown-menu">
+							<a class="dropdown-item" href="pages.html">All Pages</a>
+							<a class="dropdown-item" href="">New Page</a>
+						</div>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="users.html">Users</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="teams.html">Teams</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="score.html">Scoreboard</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="chall.html">Challenges</a>
+					</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">Submissions</a>
+						<div class="dropdown-menu">
+							<a class="dropdown-item" href="all-submissions.html">All Submissions</a>
+							<a class="dropdown-item" href="correct-submissions.html">Correct Submissions</a>
+							<a class="dropdown-item" href="wrong-submissions.html">Wrong Submissions</a>
+						</div>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="config.html">Config</a>
+					</li>
+				</ul>
+				<hr class="d-sm-flex d-md-flex d-lg-none">
+				<ul class="navbar-nav ml-md-auto d-block d-sm-flex d-md-flex">
+					<li class="nav-item">
+						<a class="nav-link" href="#">Logout</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<!-- Halaman konten -->
+	<main id="roll" role="main">
+		<div id="media-modal" class="modal fade" tabindex="-1" style="z-index: 1050; display: none;" aria-hidden="true">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+					<div class="modal-header">
+						<div class="container">
+							<div class="row">
+								<div class="col-md-12">
+									<h3 class="text-center">Media Library</h3>
+								</div>
+							</div>
+						</div>
+						<button class="close" type="button" data-dismiss="modal" aria-label="close">
+							<span aria-hidden="true">X</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<div class="modal-header">
+							<div class="container">
+								<div class="row mh-100">
+									<div id="media-library-list" class="col-md-6"></div>
+									<div id="media-library-details" class="col-md-6">
+										<h4>Media Details</h4>
+										<div id="media-item">
+											<div id="media-icon" class="text-center">
+											</div>
+											<div id="media-filename" class="text-center">
+											</div>
+											<br>
+											<div class="form-group">
+												Link:
+												<input id="media-link" type="text" name="" class="form-control" readonly="">
+											</div>
+											<div class="form-group text-center">
+												<div class="row">
+													<div class="col-md-6">
+														<button id="media-insert" class="btn btn-success w-100" data-toggle="tooltip" data-placement="top" title="Insert Link Into Editor">Insert</button>
+													</div>
+													<div class="col-md-3">
+														<button id="media-download" class="btn btn-primary w-100" data-toggle="tooltip" data-placement="top" title="Download FIle">
+															<i class="fas fa-download"></i>
+														</button>
+													</div>
+													<div class="col-md-3">
+														<button id="media-delete" class="btn btn-danger w-100" data-toggle="tooltip" data-placement="top" title="Delete File">
+															<i class="far fa-trash-alt"></i>
+														</button>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<form id="media-library-upload" enctype="multipart/form-data">
+							<div class="form-group">
+								<label for="media-files">Upload Files</label>
+								<input class="form-control-file" id="media-files" type="file" name="file" multiple="">
+								<sub class="help-block">
+									Lampirkan banyak file menggunakan Control + Click atau Cmd + Click. 
+								</sub>
+							</div>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<div class="float-right">
+							<button class="btn btn-primary" type="submit">Upload</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<div class="row pt-5">
+				<div class="col-md-12">
+					<div class="row">
+					</div>
+					<form id="page-edit" method="post">
+						<div class="form-group">
+							<div class="col-md-12">
+								<label>
+									Title
+									<br>
+									<small class="text-muted">Ini adalah judul yang ditunjukkan pada navigasi</small>
+								</label>
+								<input class="form-control radius" type="text" name="title" id="route" value="" placeholder="Title" style="border-color: gray;">
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-md-12">
+								<label>
+									Route
+									<br>
+									<small class="text-muted">Ini adalah rute URL tempat laman Anda akan berada (misal /page). Anda juga dapat memasukkan tautan untuk menautkan ke halaman itu.</small>
+								</label>
+								<input class="form-control radius" type="text" name="route" id="route" value="" placeholder="Route" style="border-color: gray;">
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-md-12">
+								<h3>Content</h3>
+								<small class="text-muted">Ini adalah konten HTML halaman Anda</small>
+								<ul id="content-edit" class="nav nav-tabs" role="tablist">
+									<li class="nav-item" role="presentation">
+										<a class="nav-link active" href="#content-write" aria-controls="home" role="tab" data-toggle="tab">Write</a>
+									</li>
+									<li class="nav-item" role="presentation">
+										<a class="nav-link" href="#preview" data-toggle="tab" role="tab">Preview</a>
+									</li>
+								</ul>
+								<div class="tab-content">
+									<div id="content-write" class="tab-pane active" role="tabpanel" style="height: 400px">
+										<br>
+										<div class="form-inline">
+											<div class="btn-group btn-group-sm">
+												<div class="btn-group">
+													<button id="media-button" class="btn btn-primary" type="button" data-toggle="modal" data-target="#media-modal">
+														<i class="fas fa-camera-retro"></i>
+														Media Library
+													</button>
+												</div>
+											</div>
+											<span class="nav-link d-none d-md-block d-lg-block">|</span>
+											<div class="form-group pr-3">
+												Draft :
+												<select name="draft">
+													<option value="true">True</option>
+													<option value="false" selected="">False</option>
+												</select>
+											</div>
+											<div class="form-group pr-3">
+												Hidden :
+												<select name="hidden">
+													<option value="true">True</option>
+													<option value="false" selected="">False</option>
+												</select>
+											</div>
+											<div class="form-group pr-3">
+												Authentication Required :
+												<select name="auth_required">
+													<option value="true">True</option>
+													<option value="false" selected="">False</option>
+												</select>
+											</div>
+										</div>
+										<br>
+										<div class="form-group">
+											<textarea class="form-control" type="text" name="html_page" rows="12" style="border-color: gray;"></textarea>
+										</div>
+									</div>
+									<div id="preview" class="tab-pane content" role="tabpanel" style="height: 400px;">
+										<object width="100%" height="100%" data="https://rizqiwahyudi.github.io/SmithCTF-team/"></object>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="form-group float-right">
+							<button id="save-page" class="btn btn-primary">Save</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</main>
+
+	<!-- Footer -->
+	<footer class="footer">
+		<div class="container text-center">
+			<a href="https://www.instagram.com/smith_smada/">
+				<small class="text-muted"><b>Powered by SMITH</b></small>
+			</a>
+		</div>
+	</footer>
+
+	<!-- JS Script -->
+	<script type="text/javascript" src="js/codemirror.min.js"></script>
+	<script type="text/javascript" src="js/function.js"></script>
+	<script type="text/javascript" src="js/bootstrap.js"></script>
+	<script type="text/javascript" src="js/typed.min.js"></script>
+	<script>
+		new Typed('#lomba', {
+			strings : ['Web Hacking', 'Cryptography', 'Binary Exploitation', 'Digital Forensic', 'Network Analysis', 'Reverse Engineering'],
+			typeSpeed : 150,
+			delaySpeed : 200,
+			loop : true
+		});
+	</script>
+	<!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> -->
+</body>
+</html>

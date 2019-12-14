@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Kompetisi Bidang Cyber Security">
+  	<meta name="author" content="Rizqi Wahyudi">
+
+	<title>Admin Panel</title>
+
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/jumbotron.css">
+	<link rel="stylesheet" type="text/css" href="css/sticky.css">
+	<link rel="stylesheet" type="text/css" href="css/chall.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+	
+	<!-- Navbar -->
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+		<div class="container">
+			<a class="navbar-brand" href="admin.html">SMITH CTF</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#base-navbars" aria-controls="base-navbars" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="base-navbars">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item">
+						<a class="nav-link" href="notif.html">Notifications</a>
+					</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">Pages</a>
+						<div class="dropdown-menu">
+							<a class="dropdown-item" href="pages.html">All Pages</a>
+							<a class="dropdown-item" href="new-page.html">New Page</a>
+						</div>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="users.html">Users</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="teams.html">Teams</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="score.html">Scoreboard</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="chall.html">Challenges</a>
+					</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">Submissions</a>
+						<div class="dropdown-menu">
+							<a class="dropdown-item" href="all-submissions.html">All Submissions</a>
+							<a class="dropdown-item" href="correct-submissions.html">Correct Submissions</a>
+							<a class="dropdown-item" href="wrong-submissions.html">Wrong Submissions</a>
+						</div>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="config.html">Config</a>
+					</li>
+				</ul>
+				<hr class="d-sm-flex d-md-flex d-lg-none">
+				<ul class="navbar-nav ml-md-auto d-block d-sm-flex d-md-flex">
+					<li class="nav-item">
+						<a class="nav-link" href="#">Logout</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<!-- Halaman konten -->
+	<main id="roll" role="main">
+		<div class="jumbotron">
+			<div class="container text-center">
+				<h1>Create Challenge</h1>
+			</div>
+		</div>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="row">
+						<div class="col-md-6 offset-md-3">
+							<div id="create-chall-entry">
+								<form method="post" action="" enctype="multipart/form-data">
+									<div class="form-group">
+										<label>
+											Name
+											<br>
+											<small class="form-text text-muted">Nama Challenge </small>
+										</label>
+										<input type="text" name="name" class="form-control" placeholder="Enter Challenge Name" style="border-color: gray;">
+									</div>
+									<div class="form-group">
+										<label>
+											Category
+											<br>
+											<small class="form-text text-muted">Category Challenge </small>
+										</label>
+										<input type="text" name="category" class="form-control" placeholder="Enter Challenge Category" style="border-color: gray;">
+									</div>
+									<ul class="nav nav-tabs" role="tablist" id="new-desc-edit">
+										<li class="nav-item">
+											<a class="nav-link active" href="#new-desc-write" aria-controls="home" role="tab" data-toggle="tab">Write</a>
+										</li>
+										<li class="nav-item">
+											<a class="nav-link" href="#new-desc-preview" aria-controls="home" role="tab" data-toggle="tab">Preview</a>
+										</li>
+									</ul>
+									<div class="tab-content">
+										<div id="new-desc-write" class="tab-pane active" role="tabpanel">
+											<div class="form-group">
+												<label>
+													Message:
+													<br>
+													<small class="form-text text-muted">Gunakan ini untuk memberikan pengantar singkat tentang tantangan Anda. </small>
+												</label>
+												<textarea id="new-desc-editor" class="form-control" name="description" rows="10" style="border-color: gray;"></textarea>
+											</div>
+										</div>
+										<div id="new-desc-preview" class="tab-pane content" role="tabpanel" style="height: 234px;">
+											<object width="100%" height="100%" data="https://rizqiwahyudi.github.io/SmithCTF-team/"></object>
+										</div>
+									</div>
+									<div class="form-group">
+										<label>
+											Value
+											<br>
+											<small class="form-text text-muted">Point yang diberikan untuk menyelesaikan challenge ini. </small>
+										</label>
+										<input type="number" name="value" class="form-control" placeholder="Enter Value" required="" style="border-color: gray;">
+									</div>
+									<div class="form-group">
+										<button class="btn btn-primary float-right create-chall-submit" type="submit">Create</button>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+
+	<!-- Footer -->
+	<footer class="footer">
+		<div class="container text-center">
+			<a href="https://www.instagram.com/smith_smada/">
+				<small class="text-muted"><b>Powered by SMITH</b></small>
+			</a>
+		</div>
+	</footer>
+
+	<!-- JS Script -->
+	<script type="text/javascript" src="js/function.js"></script>
+	<script type="text/javascript" src="js/bootstrap.js"></script>
+	<script type="text/javascript" src="js/typed.min.js"></script>
+	<script>
+		new Typed('#lomba', {
+			strings : ['Web Hacking', 'Cryptography', 'Binary Exploitation', 'Digital Forensic', 'Network Analysis', 'Reverse Engineering'],
+			typeSpeed : 150,
+			delaySpeed : 200,
+			loop : true
+		});
+	</script>
+	<!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> -->
+</body>
+</html>
