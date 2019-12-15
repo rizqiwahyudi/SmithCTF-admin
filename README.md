@@ -26,3 +26,6 @@ Pada menu ini terdapat 3 pilihan dropdown, yaitu yang pertama all submissions ya
 
 ### Menu Config
 Pada menu Config ini berisi banyak sekali settingan yang mungkin di perlukan fitrunya oleh admin penyelenggara kompetisi. Settingannya mulai dari tampilan, akun, Setting Visibility, email, backup arsip, dan Reset.
+
+### Menu Logout
+Pada menu Logout ini user atau peserta akan di alihkan ke index masing-masing (User mode atau Team Mode) dan akan kehilangan session atau cookienya.
