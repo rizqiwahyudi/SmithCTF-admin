@@ -16,7 +16,7 @@ Pada menu ini berisi list dari usernya, dan juga bisa admin menambah, edit, atau
 Pada menu Teams berisi list dari Tim-tim yang terdaftar, namun admin juga bisa menambah, edit, atau menghapus Tim-tim itu.
 
 ### Menu Scoreboard
-Di menu scoreboard ini berisi list rangking dari masing-masing Tim / Usernya. Admin juga bisa menambah, edit, atau menghapus score tersebut.
+Di menu scoreboard ini berisi list rangking dari masing-masing Tim / Usernya. Admin juga bisa mengedit visibility, atau menghapus score tersebut.
 
 ### Menu Challenges
 Pada menu Challenges ini berisi list dari soal-soal CTFnya, Admin bisa menambah, edit, atau menghapus challenge tersebut.
@@ -29,3 +29,5 @@ Pada menu Config ini berisi banyak sekali settingan yang mungkin di perlukan fit
 
 ### Menu Logout
 Pada menu Logout ini user atau peserta akan di alihkan ke index masing-masing (User mode atau Team Mode) dan akan kehilangan session atau cookienya.
+
+### NB : Pada tampilan preview saya berikan tampilan index dari CTF Team Mode, dikarenakan website ini belum dinamis.
