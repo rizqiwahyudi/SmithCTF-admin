@@ -1,7 +1,7 @@
 # SmithCTF-admin Algorithm (Alur).
 
 ### Menu Setup
-Menu setup berfungsi untuk penentuan saat kali pertama penyedia kompetisi CTF melakukan setting, pada menu ini terdapat form yang harus di isi yatu diantaranya : nama CTF, Username email dan password Admin, dan CTF Mode apakah penyelenggara kompetisi akan mengadakan berbentuk tim atau individual. Setelah konfigurasi ini selesai maka akan masuk ke halaman dashboard admin (https://rizqiwahyudi.github.io/SmithCTF-admin/admin.html).
+Menu setup berfungsi untuk penentuan saat kali pertama penyedia kompetisi CTF melakukan setting, pada menu ini terdapat form yang harus di isi yaitu diantaranya : nama CTF, Username email dan password Admin, dan CTF Mode apakah penyelenggara kompetisi akan mengadakan berbentuk tim atau individual. Setelah konfigurasi ini selesai maka akan masuk ke halaman dashboard admin (https://rizqiwahyudi.github.io/SmithCTF-admin/admin.html).
 
 ### Menu Notifications
 Pada menu ini Admin bisa menambah, edit, atau hapus Notifikasinya.
