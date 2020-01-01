@@ -31,3 +31,5 @@ Pada menu Config ini berisi banyak sekali settingan yang mungkin di perlukan fit
 Pada menu Logout ini user atau peserta akan di alihkan ke index masing-masing (User mode atau Team Mode) dan akan kehilangan session atau cookienya.
 
 ### NB : Pada tampilan preview saya berikan tampilan index dari CTF Team Mode, dikarenakan website ini belum dinamis.
+
+### Untuk Form Admin Login menggunakan satu form login yaitu (https://rizqiwahyudi.github.io/SmithCTF-team/login.html), saya samakan dengan form login user.
